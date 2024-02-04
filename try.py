@@ -5,8 +5,9 @@ from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import sqlalchemy.orm
+import psycopg2
 
-SQLALCHEMY_DATABASE_URL = 'sqlite:///./PostJob.db'
+SQLALCHEMY_DATABASE_URL = 'postgresql+psycopg2://startup_787o_user:76ZNvMkzWIcDr73tXlTZLxUCwjOFe5S8@dpg-cmvrv7qcn0vc73aqnhpg-a.oregon-postgres.render.com/startup_787o'
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = sqlalchemy.orm.declarative_base()
@@ -42,8 +43,8 @@ class Postjob(BaseModel):
     job_category: str
     author: str
     promoted: bool
-    date_updated:str
-    date_created:str
+    date_updated: str
+    date_created: str
 
 # welcome endpoint
 @app.get('/')
